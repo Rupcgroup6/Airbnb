@@ -45,6 +45,13 @@ namespace RuppinRent.Models
             return houses;
         }
 
+        public List<House> GetHousesByName(string name)
+        {
+            DataServices ds = new DataServices();
+            List<House> houses = ds.GetHousesByName(name);
+            return houses;
+        }
+
         public House GetHouse(float id)
         {
             DataServices ds = new DataServices();

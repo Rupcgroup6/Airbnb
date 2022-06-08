@@ -24,6 +24,13 @@ namespace RuppinRent.Controllers
             return house;
         }
 
+        public IEnumerable<House> Get(string name)
+        {
+            House h = new House();
+            List<House> houses = h.GetHousesByName(name);
+            return houses;
+        }
+
         public void Put(int id, [FromBody] string value)
         {
         }

@@ -83,6 +83,34 @@ namespace RuppinRent.Models.DAL
 
         }
 
+        public List<House> GetHousesByName(string name)
+        {
+            SqlConnection con = Connect();
+            string commandStr = "SELECT *"
+                                    + " FROM Houses as h"                       
+                                    + " WHERE h.name LIKE " + "'%" + name + "%';";
+            SqlCommand command = CreateCommand(commandStr, con);
+            SqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
+
+            List<House> houses = new List<House>();
+
+            while (dr.Read())
+            {
+                float Id = float.Parse(dr["id"].ToString());
+                string Name = dr["name"].ToString();
+                string Description = dr["description"].ToString();
+                string Picture = dr["picture_url"].ToString();
+                string Neighbourhoood = dr["neighbourhood"].ToString();
+                string NeighbourhooodOverview = dr["neighborhood_overview"].ToString();
+                float Score = float.Parse(dr["review_scores_rating"].ToString());
+
+                houses.Add(new House(Id, Name, Description, Picture, Neighbourhoood, NeighbourhooodOverview, Score));
+            }
+
+            return houses;
+
+        }
+
         public House GetHouse(float HouseId)
         {
             string id = HouseId.ToString();
