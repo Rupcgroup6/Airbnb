@@ -52,10 +52,10 @@ namespace RuppinRent.Models
             return houses;
         }
 
-        public House GetHouse(float id)
+        public House GetHouseById(int id)
         {
             DataServices ds = new DataServices();
-            House house = ds.GetHouse(id);
+            House house = ds.GetHouseById(id);
             return house;
         }
 

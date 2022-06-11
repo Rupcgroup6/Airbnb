@@ -111,9 +111,9 @@ namespace RuppinRent.Models.DAL
 
         }
 
-        public House GetHouse(float HouseId)
+        public House GetHouseById( int houseId)
         {
-            string id = HouseId.ToString();
+            string id = houseId.ToString();
             SqlConnection con = Connect();
             string commandStr = "select * from Houses where id = " + id;
             SqlCommand command = CreateCommand(commandStr, con);

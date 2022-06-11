@@ -17,10 +17,10 @@ namespace RuppinRent.Controllers
             return houses;
         }
 
-        public House Get(float id)
+        public House Get(int id)
         {
             House h = new House();
-            House house = h.GetHouse(id);
+            House house = h.GetHouseById(id);
             return house;
         }
 

@@ -23,21 +23,12 @@
             loadHouse();
         });
 
-        function loadHouse(id) {
-            id = 9410136;
-
-            let api = "../api/Houses/"+id;
+        function loadHouse() {
+            id = window.location.href.split('?')[1]
+            console.log(window.location.href.split('?')[1]);
+            let api = "../api/Houses/" + parseInt(id);
             ajaxCall("GET", api, "", getHouseSuccessCB, getHouseErrorCB);
 
-        }
-
-        function buildPage(house) {
-            let str = "";
-            str += "<h1>" + house.Name + "</h1>";
-            str += "<div id=right>"
-            str += "<img src=" + house.Picture + ">";
-            str += "</div>"
-            $("#big").html(str);
         }
 
 
@@ -49,6 +40,17 @@
         function getHouseErrorCB(err) {
             console.log(err);
         }
+
+
+        function buildPage(house) {
+            let str = "";
+            str += "<h1>" + house.Name + "</h1>";
+            str += "<div id=right>"
+            str += "<img src=" + house.Picture + ">";
+            str += "</div>"
+            $("#big").html(str);
+        }
+
 
         function activeUser() {
             if (localStorage.getItem("user") == 'undefined') {

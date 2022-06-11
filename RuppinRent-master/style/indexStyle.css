@@ -1,103 +1,140 @@
-﻿* {
-    box-sizing: border-box;
+﻿body {
+    display: flex;
+    height: 100vh;
 }
 
-/* Style the search field */
-style input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
+input {
+    box-shadow: 0;
+    outline: 0;
 }
 
-/* Style the submit button */
-style button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
-    cursor: pointer;
-}
-
-    style button:hover {
-        background: #0b7dda;
-    }
-
-/* Clear floats */
-style::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Dropdown Button */
-.dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-    /* Dropdown button on hover & focus */
-    .dropbtn:hover, .dropbtn:focus {
-        background-color: #3e8e41;
-    }
-
-/* The search field */
-#myInput {
-    box-sizing: border-box;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-}
-
-    /* The search field when it gets focus/clicked on */
-    #myInput:focus {
-        outline: 3px solid #ddd;
-    }
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
+.price-slider {
+    width: 300px;
+    margin: auto;
+    text-align: center;
     position: relative;
-    display: inline-block;
+    height: 6em;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    border: 1px solid #ddd;
-    z-index: 1;
-}
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
+    .price-slider svg,
+    .price-slider input[type=range] {
+        position: absolute;
+        left: 0;
+        bottom: 0;
     }
 
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: #f1f1f1
+input[type=number] {
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1.6em;
+    -moz-appearance: textfield;
+}
+
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type=number]:invalid,
+    input[type=number]:out-of-range {
+        border: 2px solid #e60023;
+    }
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+    input[type=range]:focus {
+        outline: none;
+    }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #1da1f2;
         }
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-    display: block;
-}
+        input[type=range]:focus::-ms-fill-lower {
+            background: #1da1f2;
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: #1da1f2;
+        }
+
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: #1da1f2;
+        border-radius: 1px;
+        box-shadow: none;
+        border: 0;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 0px #000;
+        border: 1px solid #1da1f2;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: #a1d0ff;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7px;
+    }
+
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: #1da1f2;
+        border-radius: 1px;
+        box-shadow: none;
+        border: 0;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 0px #000;
+        border: 1px solid #1da1f2;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: #a1d0ff;
+        cursor: pointer;
+    }
+
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+
+    input[type=range]::-ms-fill-lower,
+    input[type=range]::-ms-fill-upper {
+        background: #1da1f2;
+        border-radius: 1px;
+        box-shadow: none;
+        border: 0;
+    }
+
+    input[type=range]::-ms-thumb {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 0px #000;
+        border: 1px solid #1da1f2;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: #a1d0ff;
+        cursor: pointer;
+    }
